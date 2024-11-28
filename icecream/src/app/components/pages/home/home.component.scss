@@ -1,0 +1,84 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  h2 {
+    color: #555;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input {
+    margin: 10px 0;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Estilo para la lista de helados */
+  .ice-cream-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .ice-cream-list li {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  button {
+    margin-left: 10px;
+  }
+  
+  /* Modal de edición */
+  .edit-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  
+  .edit-modal form {
+    background: #333;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+  }
+  
+  .edit-modal button {
+    background-color: #f44336;
+  }
+  
+  .edit-modal button:hover {
+    background-color: #e31a1a;
+  }
+  

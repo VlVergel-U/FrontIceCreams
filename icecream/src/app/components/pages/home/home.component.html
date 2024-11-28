@@ -1,0 +1,52 @@
+<div class="container">
+    <h1>Gestión de Helados</h1>
+    
+    <div class="add-ice-cream">
+      <h2>Agregar Helado</h2>
+      <form >
+        <label for="name">Nombre del Helado:</label>
+        <input type="text" id="name"  name="name" required>
+        
+        <label for="flavor">Sabor:</label>
+        <input type="text" id="flavor" name="flavor" required>
+  
+        <label for="price">Precio:</label>
+        <input type="number" id="price"  name="price" required>
+        
+        <button type="submit">Agregar</button>
+      </form>
+    </div>
+  
+    <div class="ice-cream-list">
+      <h2>Helados Disponibles</h2>
+      <ul>
+        <li *ngFor="let iceCream of iceCreams">
+          <div>
+            <h3>{{ iceCream.name }}</h3>
+            <p><strong>Sabor:</strong> {{ iceCream.flavor }}</p>
+            <p><strong>Precio:</strong> ${{ iceCream.price }}</p>
+            <button>Editar</button>
+            <button >Eliminar</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <div *ngIf="selectedIceCream" class="edit-modal">
+      <h2>Editar Helado</h2>
+      <form >
+        <label for="editName">Nombre del Helado:</label>
+        <input type="text" id="editName"  name="editName" required>
+        
+        <label for="editFlavor">Sabor:</label>
+        <input type="text" id="editFlavor"  name="editFlavor" required>
+  
+        <label for="editPrice">Precio:</label>
+        <input type="number" id="editPrice"  name="editPrice" required>
+        
+        <button type="submit">Actualizar</button>
+        <button type="button" >Cancelar</button>
+      </form>
+    </div>
+  </div>
+  
