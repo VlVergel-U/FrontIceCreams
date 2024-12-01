@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="register">
+        <p class="title">
+           Registro
+        </p>
+        <p class="subtitle">¡Crea tu cuenta y disfruta de la experiencia más dulce! 🍦</p>
+        <form (ngSubmit)="register()">
+            <input type="text" placeholder="Usuario" [(ngModel)]="username" name="username" required>
+            <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required>
+            <button type="submit">Registrarse</button>
+        </form>
+        <a (click)="goToLogin()" id="link">¿Ya tienes cuenta? Inicia sesión</a>
+    </div>
+</div>

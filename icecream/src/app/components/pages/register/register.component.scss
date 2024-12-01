@@ -5,7 +5,7 @@
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url(https://png.pngtree.com/thumb_back/fw800/background/20231019/pngtree-background-of-smooth-strawberry-ice-cream-texture-image_13658329.png) no-repeat;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url(https://png.pngtree.com/thumb_back/fw800/background/20231224/pngtree-close-up-view-of-vanilla-white-ice-cream-texture-or-background-image_13834854.png) no-repeat;
     background-size: cover;
     background-position: top center;
     width: 100%;
@@ -21,7 +21,7 @@
     font-size: 350%;
     margin-bottom: 20px;
     color: #fff;
-    text-shadow: 2px 4px 4px rgba(204, 83, 144, 0.5);
+    text-shadow: 2px 4px 4px rgba(91, 91, 91, 0.5);
     animation: melt 1.5s ease-in-out infinite;
 }
 
@@ -45,13 +45,13 @@
     color: #fff;
 }
 
-.login {
+.register {
     margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(251, 176, 209, 0.8);
+    background: rgba(220, 220, 220, 0.8);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 8px 8px 8px rgba(44, 21, 43, 0.2);
@@ -64,48 +64,48 @@ form {
 }
 
 input, button {
-    border: 2px solid rgba(218, 95, 204, 0.2);
+    border: 2px solid rgba(72, 72, 72, 0.2);
     border-radius: 10px;
     padding: 10px;
     margin: 10px 0;
     width: 200px;
-    box-shadow: 4px 6px 6px rgba(125, 49, 109, 0.2);
+    box-shadow: 4px 6px 6px rgba(145, 145, 145, 0.2);
 }
 
 input:hover, button:hover {
     box-shadow: 
-        0 0 15px rgb(148, 68, 131);
+        0 0 15px rgb(155, 155, 155);
     transform: scale(1.05);
 }
 
 input:focus, button:focus {
     outline: none;
     box-shadow: 
-        0 0 10px rgba(125, 49, 109, 0.5); 
-    border: 1px solid rgba(174, 81, 154, 0.8);
+        0 0 10px rgba(190, 190, 190, 0.5); 
+    border: 1px solid rgba(177, 177, 177, 0.8);
 }
 
 input::placeholder{
     font-weight: bold;
-    color: #b16698;
+    color: #7a7a7a;
 }
 
 button {
     font-weight: bold;
-    background-color: #c470a8;
-    color: white;
+    background-color: #f8fae5;
+    color: rgb(98, 98, 98);
     cursor: pointer;
 
 }
 
 button:hover {
-    background-color: #b16698;
+    background-color: #e5e7d4;
 }
 
 #link{
     font-size: small;
     cursor: pointer;
     margin-top: 10px;
-    color: #53153e;
+    color: #393939;
     font-weight: bold;
 }
