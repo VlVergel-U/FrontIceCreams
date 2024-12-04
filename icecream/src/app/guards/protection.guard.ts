@@ -11,5 +11,5 @@ export const protectionGuard: CanActivateFn = (route, state) => {
       return true;
     }
   }
-  return false;
+  return router.createUrlTree(['/']);
 };

@@ -4,11 +4,12 @@ import { AlertService } from '../../../services/alert.service';
 import { icecream } from '../../../models/ice_cream.model';
 import { IceCreamService } from '../../../services/icecream.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -23,21 +24,21 @@ export class HomeComponent {
   }
 
   loadIceCreams() {
-    this.iceCreamService.getAllIceCreams().subscribe(
-      (data) => {
+    this.iceCreamService.getAllIceCreams().subscribe({
+      next: (data) => {
         this.iceCreams = data;
       },
-      () => {
+      error: () => {
         this.alert.error('Error', 'Hubo un problema al cargar los helados.', 'OK', '#db99b4');
       }
-    );
+    });
   }
-
+  
   addIceCream(form: any) {
     const iceCreamData: icecream = { ...form.value };
-
-    this.iceCreamService.createIceCream(iceCreamData).subscribe(
-      (success) => {
+  
+    this.iceCreamService.createIceCream(iceCreamData).subscribe({
+      next: (success) => {
         if (success) {
           this.alert.success('¡Éxito!', 'Helado agregado correctamente.', 'OK', '#db99b4');
           this.loadIceCreams();
@@ -46,21 +47,21 @@ export class HomeComponent {
           this.alert.error('Error', 'No se pudo agregar el helado.', 'OK', '#db99b4');
         }
       },
-      () => {
+      error: () => {
         this.alert.error('Error', 'No se pudo agregar el helado.', 'OK', '#db99b4');
       }
-    );
+    });
   }
 
   editIceCream(id: string) {
-    this.iceCreamService.getOneIceCream(id).subscribe(
-      (data) => {
+    this.iceCreamService.getOneIceCream(id).subscribe({
+      next: (data) => {
         this.selectedIceCream = data;
       },
-      () => {
+      error: () => {
         this.alert.error('Error', 'No se pudo cargar el helado.', 'OK', '#db99b4');
       }
-    );
+    });
   }
 
   updateIceCream() {
@@ -94,8 +95,8 @@ export class HomeComponent {
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.iceCreamService.deleteIceCream(id).subscribe(
-          (success) => {
+        this.iceCreamService.deleteIceCream(id).subscribe({
+          next: (success) => {
             if (success) {
               this.alert.success('¡Éxito!', 'Helado eliminado.', 'OK', '#db99b4');
               this.loadIceCreams();
@@ -103,11 +104,17 @@ export class HomeComponent {
               this.alert.error('Error', 'No se pudo eliminar el helado.', 'OK', '#db99b4');
             }
           },
-          () => {
+          error: () => {
             this.alert.error('Error', 'No se pudo eliminar el helado.', 'OK', '#db99b4');
           }
-        );
+        });
       }
     });
   }
+
+  cancelEdit() {
+    this.selectedIceCream = { img: '', flavor: '', price: 0, company: '', type: '' };
+  }
+  
+  
 }

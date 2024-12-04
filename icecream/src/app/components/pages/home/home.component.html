@@ -41,20 +41,23 @@
     <ul>
       <li *ngFor="let iceCream of iceCreams">
         <div>
+          <img src="{{iceCream.img}}" alt="" style="width: 140px; height: 100px; border: none; border-radius: 10px;">
           <p><strong>Sabor:</strong> {{ iceCream.flavor }}</p>
           <p><strong>Precio:</strong> ${{ iceCream.price }}</p>
           <p><strong>Compañía:</strong> {{ iceCream.company }}</p>
           <p><strong>Tipo:</strong> {{ iceCream.type }}</p>
-          <button (click)="editIceCream(iceCream.id)">Editar</button>
-          <button (click)="deleteIceCream(iceCream.id)">Eliminar</button>
+          <button (click)="editIceCream( iceCream.id || '')">Editar</button>
+          <button (click)="deleteIceCream(iceCream.id || '')">Eliminar</button>
         </div>
       </li>
     </ul>
   </div>
 
-  <div *ngIf="selectedIceCream" class="edit-modal">
+  <div *ngIf="selectedIceCream.id" class="edit-modal">
     <h2>Editar Helado</h2>
     <form (ngSubmit)="addIceCream(iceCreamForm)" #iceCreamForm="ngForm">
+      <label for="img">Imagen (url):</label>
+      <input type="url" id="img" name="img" required>
       <label for="editFlavor">Sabor:</label>
       <select id="editFlavor" name="editFlavor" [(ngModel)]="selectedIceCream.flavor" required>
         <option value="vainilla">Vainilla</option>
@@ -80,7 +83,7 @@
       </select>
 
       <button type="submit">Actualizar</button>
-      <button type="button">Cancelar</button>
+      <button type="button" (click)="cancelEdit()">Cancelar</button>
     </form>
   </div>
 </div>
