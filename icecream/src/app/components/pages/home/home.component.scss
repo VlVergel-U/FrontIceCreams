@@ -1,59 +1,192 @@
-.container {
+// .container {
+//   position: fixed;
+//   top: 50%;
+//   left: 50%;
+//   -webkit-transform: translate(-50%, -50%);
+//           transform: translate(-50%, -50%);
+//   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url(https://png.pngtree.com/thumb_back/fw800/background/20231018/pngtree-deliciously-smooth-vanilla-ice-cream-with-a-beige-texture-image_13624108.png) no-repeat;
+//   background-size: cover;
+//   background-position: top center;
+//   width: 100%;
+//   height: 100%;
+//   }
+  .ice-cream-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    padding: 10px;
+  }
+
+  .ice-cream-info {
+    flex: 1;
+    color: #333;
+  }
+
+  .ice-cream-info button {
+    margin: 5px 0;
+  }
+
+  .form-container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 10px auto;
     padding: 20px;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
+    background-color: rgba(255, 255, 255, 0.848);
+    border-radius: 10px;
+    // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
   h1 {
     text-align: center;
-    color: #333;
+    color: #010101;
   }
   
   h2 {
-    color: #555;
+    color: #2b2b2b;
   }
   
   form {
     margin-bottom: 20px;
   }
   
-  input {
+  input, select {
     margin: 10px 0;
-    padding: 8px;
+    padding: 10px 15px;
     width: 100%;
     box-sizing: border-box;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease;
   }
   
+  input:focus, select:focus {
+    border-color: #ff91d7;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(252, 126, 239, 0.5);
+    outline: none;
+  }
+  
+  input:hover, select:hover {
+    border-color: #bbb;
+  }
+
   button {
-    background-color: #4CAF50;
+    background-color: #eb8dbc;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     cursor: pointer;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
-  
+
   button:hover {
-    background-color: #45a049;
+    background-color: #f06292;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
   }
   
-  /* Estilo para la lista de helados */
+  button:active::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple 0.6s ease-out;
+  }
+  
+  @keyframes ripple {
+    0% {
+      width: 0;
+      height: 0;
+      opacity: 1;
+    }
+    100% {
+      width: 300px;
+      height: 300px;
+      opacity: 0;
+    }
+  }
+
+  #deletebutton{
+    background-color: #f44336;
+  }
+
+  #deletebutton:hover{
+    background-color: #d93d32;
+  }
+
+  #unloginbutton{
+    background-color: #ecda73;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  
+  #unloginbutton:hover{
+    background-color: #d6c669;
+  }
+
+  button:hover {
+    background-color: #b16698;
+  }
+  
   .ice-cream-list ul {
     list-style: none;
     padding: 0;
   }
   
   .ice-cream-list li {
-    border: 1px solid #ddd;
-    padding: 10px;
+    padding: 15px 20px;
     margin: 10px 0;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .ice-cream-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+    border-color: #eb8dbc;
+  }
+  
+  .ice-cream-list li {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   button {
     margin-left: 10px;
   }
   
-  /* Modal de edición */
   .edit-modal {
     position: fixed;
     top: 0;

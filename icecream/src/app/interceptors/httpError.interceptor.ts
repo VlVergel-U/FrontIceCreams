@@ -1,4 +1,6 @@
 import { HttpEvent, HttpHandlerFn, HttpRequest, HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
+import { inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
 import Swal from 'sweetalert2';
 
@@ -6,6 +8,8 @@ export const HttpErrorInterceptorService: HttpInterceptorFn = (
   request: HttpRequest<any>,
   next: HttpHandlerFn
 ): Observable<HttpEvent<any>> => {
+  
+  const router = inject(Router);
   console.log('Pase por el interceptor de HTTP');
 
   return next(request).pipe(
@@ -16,6 +20,9 @@ export const HttpErrorInterceptorService: HttpInterceptorFn = (
         errorMessage = error.error?.message
       } else if (error.status === 422 && error.error.errors) {
         errorMessage = error.error.errors.map((err: any) => `• ${err}`).join('<br>');
+      } else if (error.status == 401 ){
+        errorMessage = 'Su sesión ha expirado, inicia sesión nuevamente'
+        router.navigateByUrl('')
       }
 
       console.log(error);
@@ -26,14 +33,14 @@ export const HttpErrorInterceptorService: HttpInterceptorFn = (
 };
 
 function setError(error: HttpErrorResponse): string {
-  let errorMessage = 'An unknown error occurred';
+  let errorMessage = 'Un error extraño ocurrió';
   if (error.error instanceof ErrorEvent) {
     errorMessage = error.error.message;
   } else {
     if (error.status !== 0) {
       errorMessage = error.error.errorMessage || `Error: ${error.status} - ${error.statusText}`;
     } else {
-      errorMessage = 'Cannot connect to the server. Please check your network connection.';
+      errorMessage = 'No se puedo conectar con el servidor, por favor revisa tu conexión a internet';
     }
   }
   return errorMessage;
@@ -49,7 +56,7 @@ function showErrorAlert(message: string): void {
           <p style="font-size: 16px; color: #333;">${message}</p>
         </div>
       `,
-      confirmButtonText: '<b>¡Lo intentaré de nuevo!</b>',
+      confirmButtonText: '<b>OK</b>',
       confirmButtonColor: '#db99b4',
       background: 'white',
       customClass: {
