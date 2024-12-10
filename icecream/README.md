@@ -1,27 +1,54 @@
-# Icecream
+# GoodIceCreams App 🍦
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+Bienvenido a **GoodIceCreams**, una aplicación web desarrollada con **Angular** para gestionar helados. Este proyecto incluye funcionalidades como registro, inicio de sesión, y una interfaz amigable para explorar diferentes sabores. Está conectada a un backend para manejar la lógica y los datos.
 
-## Development server
+## 🛠️ Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Registro**: Crea una cuenta para acceder a la aplicación.
+- **Inicio de sesión**: Autenticación segura para los usuarios.
+- **Página principal**: Una vista que muestra la información de los helados.
+- **Protección de rutas**: Solo usuarios autenticados pueden acceder a ciertas secciones.
+- **Páginas de error**: Una vista `404` para rutas no encontradas.
 
-## Code scaffolding
+## 🌐 Enlace a la App
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Accede a la aplicación desplegada aquí: [GoodIceCream App](https://goodicecreams.web.app/)
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📂 Estructura del Proyecto
 
-## Running unit tests
+El proyecto está organizado en las siguientes carpetas principales:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### `components`
+- **home**: Página principal de la aplicación
+- **login**: Componente para el inicio de sesión
+- **notfound**: Página de error para rutas no encontradas (404)
+- **register**: Componente para el registro de usuarios
 
-## Running end-to-end tests
+### `environments`
+Archivo de configuración de entorno
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### `guard`
+- **protection.guard**: Implementa la lógica para proteger rutas, asegurando que solo usuarios autenticados puedan acceder
 
-## Further help
+### `interceptors`
+- Implementa interceptores para manejar peticiones HTTP
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### `models`
+- Contiene las interfaces y clases que definen los modelos de datos utilizados
+
+### `services`
+- Servicios para la comunicación con el backend
+
+---
+
+## 🔧 Configuración del Proyecto
+
+### Requisitos Previos
+1. [Node.js](https://nodejs.org/)
+2. [Angular CLI](https://angular.io/cli)
+
+### Instalación
+1. Clona el repositorio:
+   git clone https://github.com/VlVergel-U/FrontIceCreams.git

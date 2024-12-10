@@ -6,8 +6,28 @@
         </p>
         <p class="subtitle">¡Bienvenido a la heladería! Estamos felices de tenerte aquí</p>
         <form (ngSubmit)="login()">
-            <input type="text" placeholder="Usuario" [(ngModel)]="username" name="username" required>
-            <input type="password" placeholder="Contraseña" [(ngModel)]="password" name="password" required>
+            <input
+            type="text"
+            placeholder="Usuario"
+            [(ngModel)]="username"
+            name="username"
+            required
+            minlength="6"
+            #usernameCtrl="ngModel">
+          <div *ngIf="usernameCtrl.invalid && (usernameCtrl.dirty || usernameCtrl.touched)" class="error">
+            <p *ngIf="usernameCtrl.errors?.['required']" style="font-size: 12px; color: white;">El nombre de usuario es obligatorio</p>
+          </div>
+          <input
+          type="password"
+          placeholder="Contraseña"
+          [(ngModel)]="password"
+          name="password"
+          required
+          minlength="8"
+          #passwordCtrl="ngModel">
+        <div *ngIf="passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)" class="error">
+          <p *ngIf="passwordCtrl.errors?.['required']" style="font-size: 12px; color: white;">La contraseña es obligatoria</p>
+        </div>
             <button type="submit">Entrar</button>
         </form>
         <a (click)="goToRegister()" id="link">¿No tienes cuenta? Crea una</a>
